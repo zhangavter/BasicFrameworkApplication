@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">lib_common</string>
+
+    <string name="str_server_error">接口异常</string>
+    <string name="str_gif">GIF</string>
+
+    <string name="defaultMoreText">全文</string>
+    <string name="special_bottom_sheet_behavior">zhang.acfun.com.basicframeworklib.widget.bottomsheet.behavior.SpecialBottomSheetBehavior </string>
+
+
+    <string name="str_security_des">"检测到不安全的VPN,为了你在使用过程中信息不被泄露，请关闭VPN"</string>
+    <string name="str_security_close">去关闭</string>
+
+    <string name="duration_format" formatted="false">%d:%02d</string>
+
+    <string name="str_allPicture">全部相册</string>
+    <string name="sure">确定</string>
+
+
+    <string name="str_permission_grant_needed">你需要在“设置-运用-权限管理”中开启</string>
+    <string name="str_permission_conform">去设置</string>
+    <string name="str_permission_cancle">取消</string>
+</resources>

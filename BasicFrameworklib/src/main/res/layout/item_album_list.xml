@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_sw_80dp"
+        android:paddingLeft="@dimen/dimen_sw_20dp"
+        android:paddingRight="@dimen/dimen_sw_20dp">
+
+        <zhang.acfun.com.basicframeworklib.view.PercentImageView
+            android:id="@+id/iv_album_la"
+            android:layout_width="@dimen/dimen_sw_60dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            app:isSquare="true"
+            app:roundedCornerRadius="@dimen/dimen_sw_10dp" />
+
+        <TextView
+            android:id="@+id/tv_name_la"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimen_sw_15dp"
+            android:layout_toRightOf="@id/iv_album_la"
+            android:textColor="@color/C1"
+            android:textSize="@dimen/dimen_sw_16sp"
+            tools:text="显示照片" />
+
+        <TextView
+            android:id="@+id/tv_count_album"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/tv_name_la"
+            android:textColor="@color/C1"
+            android:textSize="@dimen/dimen_sw_16sp"
+            tools:text=" · 100" />
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

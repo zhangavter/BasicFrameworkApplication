@@ -1,0 +1,246 @@
+apply plugin: 'com.android.application'
+
+def doneflag = false
+
+android {
+/**下面是打包时，自动生成各个屏幕的dimens*/
+    doneflag = false
+    applicationVariants.all { variant ->
+        if (!doneflag) {
+            log("----name--->" + name)
+            //只执行一次
+            doneflag = true
+            DeleteAllDimens()//先删除所有适配文件
+            autoDimensTool()//自动创建dimens
+        }
+    }
+}
+
+/**
+ * 自定生成dimens的工具
+ * */
+def autoDimensTool() {
+
+    //基准的sw尺寸，我们的设计用的设计分辨率是1334x750，所以后面以这个为基准计算
+    def normal_sw = 375
+    //配置需要生成的对应尺寸
+    def need_sw = [240, 280, 320, 340, 375, 400, 440, 480, 520, 560, 600, 640, 680, 720, 760, 800, 840, 880, 920, 960, 1000]
+
+    need_sw.eachWithIndex { int value, int index ->
+        log("value is ${value} and index is ${index}")
+
+        startDimens(value, normal_sw)
+    }
+
+}
+
+/**
+ * swValue 需要生成的sw尺寸
+ * normal_sw设计时的sw尺寸
+ * */
+def startDimens(def swValue, def normal_sw) {
+
+    def TAG = "自动生成dimens===>"
+
+    //原始文件的路径
+    File file = new File("./module_common/src/main/res/values/dimens_sw.xml")
+
+    BufferedReader reader = null
+    StringBuilder swBuilder = new StringBuilder()
+
+    try {
+
+        log(TAG + " 开始生成不同分辨率   sw" + swValue)
+
+        reader = new BufferedReader(new FileReader(file))
+
+        String tempString
+
+        int line = 1
+
+        // 一次读入一行，直到读入null为文件结束
+        while ((tempString = reader.readLine()) != null) {
+            if (tempString.contains("</dimen>")) {
+                //tempString = tempString.replaceAll(" ", "")
+
+                String start = tempString.substring(0, tempString.indexOf(">") + 1)
+
+                String end = tempString.substring(tempString.lastIndexOf("<") - 2)
+                //截取<dimen></dimen>标签内的内容，从>右括号开始，到左括号减2，取得配置的数字
+                Double num = Double.parseDouble(tempString.substring(tempString.indexOf(">") + 1,
+                        tempString.indexOf("</dimen>") - 2))
+
+                //这里开始计算出对应的尺寸
+                swBuilder.append(start).append(num * (swValue / normal_sw)).append(end).append("\r\n")
+
+            } else {
+                swBuilder.append(tempString).append("")
+            }
+
+            line++
+
+        }
+
+        reader.close()
+
+//        log(TAG + "<!--  sw" + swValue + "的内容开始 -->")
+//        log(swBuilder.toString())
+        log(TAG + "<!--  sw" + swValue + " 的内容结束 -->")
+
+        String swfile = "./module_common/src/main/res/values-sw" + swValue + "dp/dimens_sw.xml"
+
+        //将新的内容，写入到指定的文件中去
+        writeFile(swfile, swBuilder.toString())
+
+    } catch (IOException e) {
+
+        e.printStackTrace()
+
+    } finally {
+        if (reader != null) {
+            try {
+                reader.close()
+            } catch (IOException e1) {
+                e1.printStackTrace()
+            }
+        }
+    }
+
+    log(TAG + " 生成不同分辨率结束")
+
+}
+
+/**
+ * 写入
+ */
+void writeFile(String file, String text) {
+    PrintWriter out = null
+    try {
+
+        String folder = file.substring(0, file.lastIndexOf("/"))
+        File files = new File(folder)
+        if (!files.exists()) {
+            files.mkdirs()
+        }
+
+        out = new PrintWriter(new BufferedWriter(new FileWriter(file)))
+
+        out.println(text)
+
+    } catch (IOException e) {
+
+        e.printStackTrace()
+
+    }
+
+
+    out.close()
+
+}
+
+/**
+ * 删除所有带有value-sw*dp的文件夹
+ * */
+def DeleteAllDimens() {
+    log("开始执行删除脚本")
+
+    File file = new File("./module_common/src/main/res/")
+    File[] array = file.listFiles()
+
+    array.eachWithIndex { File value, int index ->
+
+        if (value.isDirectory())//如果是文件夹
+        {
+            def path = value.getAbsolutePath()
+//            log("value is ${path} and index is ${index}")
+            def lastDirectoryName = path.subSequence(path.lastIndexOf("/") + 1, path.length())
+            String reg = "values-sw.*dp"//判断字符串中是否含有values-sw dp这类的样式
+            def isHas = lastDirectoryName.matches(reg)
+//            log("lastDirectoryName== ${lastDirectoryName}  是否是配置文件=${isHas}")
+            if (isHas) {
+                //是分辨率配置文件，就删除
+                deleteDirectory(path)
+            }
+        }
+
+    }
+
+
+    log("删除脚本结束")
+}
+
+/**
+ * 删除目录及目录下的文件
+ *
+ * @param dir 要删除的目录的文件路径
+ * @return 目录删除成功返回true，否则返回false
+ */
+def boolean deleteDirectory(String dir) {
+    // 如果dir不以文件分隔符结尾，自动添加文件分隔符
+    if (!dir.endsWith(File.separator))
+        dir = dir + File.separator
+    File dirFile = new File(dir)
+    // 如果dir对应的文件不存在，或者不是一个目录，则退出
+    if ((!dirFile.exists()) || (!dirFile.isDirectory())) {
+        log("删除目录失败：" + dir + "不存在！")
+        return false
+    }
+    boolean flag = true
+    // 删除文件夹中的所有文件包括子目录
+    File[] files = dirFile.listFiles()
+
+    for (file in files) {
+        // 删除子文件
+        if (file.isFile()) {
+            flag = deleteFile(file.getAbsolutePath())
+            if (!flag)
+                break
+        }
+        // 删除子目录
+        else if (file.isDirectory()) {
+            flag = deleteDirectory(file
+                    .getAbsolutePath())
+            if (!flag)
+                break
+        }
+    }
+    if (!flag) {
+        log("删除目录失败！")
+        return false
+    }
+    // 删除当前目录
+    if (dirFile.delete()) {
+//        log("删除目录" + dir + "成功！")
+        return true
+    } else {
+        return false
+    }
+}
+
+/**
+ * 删除单个文件
+ *
+ * @param fileName
+ *            要删除的文件的文件名
+ * @return 单个文件删除成功返回true，否则返回false
+ */
+def deleteFile(String fileName) {
+    File file = new File(fileName)
+    // 如果文件路径所对应的文件存在，并且是一个文件，则直接删除
+    if (file.exists() && file.isFile()) {
+        if (file.delete()) {
+//            log("删除单个文件" + fileName + "成功！")
+            return true
+        } else {
+            log("删除单个文件" + fileName + "失败！")
+            return false
+        }
+    } else {
+        log("删除单个文件失败：" + fileName + "不存在！")
+        return false
+    }
+}
+
+def log(String msg) {
+    System.out.println(msg)
+}

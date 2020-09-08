@@ -1,0 +1,104 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply from: '../AutoDimens.gradle'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        applicationId "${PackageName}"
+
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+
+        versionName rootProject.ext.versionName
+        versionCode rootProject.ext.versionCode
+
+        multiDexEnabled = true
+
+        ndk {
+            abiFilters 'armeabi-v7a'//, 'x86', 'mips64' ,'armeabi', 'x86_64', 'arm64-v8a'
+        }
+
+        //只保留中文资源文件  后面如果要英文再说
+        resConfigs "zh-rCN", "en-rUS"
+        //apk开头名称
+        setProperty("archivesBaseName", "acfunlib")
+
+    }
+
+    //签名
+    signingConfigs {
+        release {
+            storeFile file("showstartfans.keystore")
+            storePassword "zrtrq1#showstart."
+            keyAlias "showstartfans"
+            keyPassword "showstartfans"
+
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+    }
+
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+
+            //Zip代码压缩优化
+            zipAlignEnabled true
+            //移除无用资源
+            shrinkResources proguard.toBoolean()
+            minifyEnabled proguard.toBoolean()
+
+            def optfile = proguardOpt.toBoolean() ? 'proguard-android-optimize.txt' : 'proguard-android.txt'
+            proguardFiles getDefaultProguardFile(optfile), 'proguard-rules.pro'
+        }
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
+
+    dexOptions {
+//        incremental true
+        javaMaxHeapSize "4g"
+    }
+
+    //Lambda表达式 jack编译工具
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+            res.srcDirs = ['src/main/res-night', 'src/main/res']
+        }
+    }
+}
+
+//添加此代码可依赖aar包
+//if (!useJnilib.toBoolean()) {
+repositories {
+    flatDir {
+        dirs 'libs'
+        dirs '../BasicFrameworklib/libs'
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation project(':BasicFrameworklib')
+
+}

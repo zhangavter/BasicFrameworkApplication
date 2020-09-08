@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--*************************APP 项目规范颜色定义****************************-->
+
+    <color name="white">#ffffff</color>
+
+    <!--*****************规范颜色 兼容夜间模式*******************-->
+
+    <color name="C0">#000000</color>
+    <color name="C1">#161616</color>
+    <color name="C2">#333333</color>
+    <color name="C3">#666666</color>
+    <color name="C4">#999999</color>
+    <color name="C5">#AAAAAA</color>
+    <color name="C6">#bbbbbb</color>
+    <color name="C7">#CCCCCC</color>
+    <color name="C8">#dddddd</color>
+    <color name="C9">#F1F2F3</color>
+    <color name="C10">#F1F1F1</color>
+
+    <color name="color_pic_flag">#88000000</color>
+
+
+</resources>

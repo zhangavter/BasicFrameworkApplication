@@ -1,0 +1,106 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    ext.kotlin_version = "1.4.0"
+    repositories {
+        mavenCentral()
+        google()
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        jcenter()
+        maven { url "http://mvn.mob.com/android" }
+        maven { url 'https://dl.bintray.com/mikaelzero/maven' }
+    }
+
+    dependencies {
+        classpath "com.android.tools.build:gradle:4.0.1"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        mavenCentral()
+        google()
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        jcenter()
+        maven { url "https://jitpack.io" }
+        maven { url "http://mvn.mob.com/android" }
+        maven { url 'https://dl.bintray.com/mikaelzero/maven' }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+
+// Variables for entire project
+ext {
+
+    PackageName = "zhang.acfun.com.basicframeworkapplication"
+
+    compileSdkVersion = 28
+    buildToolsVersion = "29.0.3"
+
+    minSdkVersion = 23
+    targetSdkVersion = 28
+
+    versionName = appVersion
+    versionCode = appVersionCode.toInteger()
+
+    modelSdkVersionCode = 1
+    modelSdkVersionName = "1.0"
+
+    corektx = "1.3.1"
+    appcompat = "1.2.0"
+    multidex = "2.0.0"
+    supportDesign = "1.0.0"
+    recyclerview = "1.0.0"
+    constraint = "1.1.3"
+    annotation = "1.1.0"
+
+    frescoVersion = "2.1.0"
+    recyclerviewAdapter = "3.0.4"
+    mojito = "1.5"
+
+    //Rx
+    rxjava_version = "2.2.7"
+    rxandroid_version = "2.1.1"
+    RxBinding_version = "4.0.0"
+    RxLifeCycle_version = "2.+"
+
+    nineoldandroids = "2.4.0"
+    rxpermissions = "0.12"
+}
+
+ext.deps = [
+        multidex               : "androidx.multidex:multidex:${multidex}",
+        corektx                : "androidx.core:core-ktx:${corektx}",
+        appcompat              : "androidx.appcompat:appcompat:${appcompat}",
+        supportDesign          : "com.google.android.material:material:${supportDesign}",
+        recyclerview           : "androidx.recyclerview:recyclerview:${recyclerview}",
+        constraint             : "androidx.constraintlayout:constraintlayout:${constraint}",
+        annotation             : "androidx.annotation:annotation:${annotation}",
+
+        //图片加载
+        fresco                 : "com.facebook.fresco:fresco:${frescoVersion}",
+        //强大而灵活的RecyclerView Adapter
+        recyclerviewAdapter    : "com.github.CymChad:BaseRecyclerViewAdapterHelper:${recyclerviewAdapter}",
+
+        //图片查看专场效果-支持长图
+        mojito                 : "net.mikaelzero.mojito:core:${mojito}",
+        mojitoFactory          : "net.mikaelzero.mojito:SketchImageFactory:${mojito}",
+        mojitoFrescoImageLoader: "net.mikaelzero.mojito:FrescoImageLoader:${mojito}",
+
+        //rxjava
+        rxjava                 : "io.reactivex.rxjava2:rxjava:${rxjava_version}",
+        rxandroid              : "io.reactivex.rxjava2:rxandroid:${rxandroid_version}",
+        //RxBinding
+        rxbinding              : "com.jakewharton.rxbinding4:rxbinding:${RxBinding_version}",
+        rxbindingcore          : "com.jakewharton.rxbinding4:rxbinding-core:${RxBinding_version}",
+
+        nineoldandroids        : "com.nineoldandroids:library:${nineoldandroids}",
+        rxpermissions          : "com.github.tbruyelle:rxpermissions:${rxpermissions}",
+]

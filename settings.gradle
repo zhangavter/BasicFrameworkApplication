@@ -1,0 +1,3 @@
+include ':BasicFrameworklib'
+include ':app'
+rootProject.name = "BasicFrameworkApplication"

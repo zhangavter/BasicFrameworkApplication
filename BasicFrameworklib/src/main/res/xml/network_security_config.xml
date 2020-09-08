@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <base-config cleartextTrafficPermitted="true"/>
+
+    <!--阿里云一键登录 中国移动提供的个别接口为http请求-->
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">cmpassport.com</domain>
+    </domain-config>
+</network-security-config>

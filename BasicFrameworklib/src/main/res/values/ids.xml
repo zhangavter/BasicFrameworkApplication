@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="id_listView_empty" type="id" />
+    <item name="id_recycler_empty" type="id" />
+
+    <item name="statusbarutil_fake_status_bar_view" type="id" />
+    <item name="statusbarutil_translucent_view" type="id" />
+
+    <item name="id_toolbar_custom" type="id" />
+
+    <item name="tool_bar" type="id" />
+    <item name="tool_search" type="id" />
+    <item name="root_content" type="id" />
+    <item name="specialHead" type="id" />
+    <item name="tips_layout" type="id" />
+
+    <item name="listId" type="id" />
+
+    <item name="id_biu_view_fullscreen" type="id" />
+
+    <item name="id_loading_inside" type="id" />
+    <item name="id_loading_inside_error" type="id" />
+
+    <item name="zoom_image" type="id" />
+
+    <item name="expandable_text" type="id" />
+
+    <item name="id_bannerview" type="id" />
+    <item name="id_joker_system_background" type="id" />
+    <item name="id_empty_image" type="id"/>
+</resources>

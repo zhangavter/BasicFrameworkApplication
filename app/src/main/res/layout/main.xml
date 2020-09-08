@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/test_loadimg"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:background="#EB484A"
+        android:gravity="center"
+        android:text="测试图片加载->"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/ablum_select"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:background="#EB484A"
+        android:gravity="center"
+        android:text="相册选择器->"
+        android:textColor="#FFFFFF" />
+
+</LinearLayout>
