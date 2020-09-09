@@ -73,6 +73,7 @@ ext {
 
     nineoldandroids = "2.4.0"
     rxpermissions = "0.12"
+    mmkvVersion = "1.2.2"
 }
 
 ext.deps = [
@@ -103,4 +104,7 @@ ext.deps = [
 
         nineoldandroids        : "com.nineoldandroids:library:${nineoldandroids}",
         rxpermissions          : "com.github.tbruyelle:rxpermissions:${rxpermissions}",
+
+        //腾讯的存储方案 替代SharedPreferences
+        mmkv                   : "com.tencent:mmkv-static:${mmkvVersion}",
 ]

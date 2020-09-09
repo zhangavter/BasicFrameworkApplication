@@ -73,4 +73,7 @@ dependencies {
     api deps.nineoldandroids
     api deps.rxpermissions
 
+    //腾讯的存储方案 替代SharedPreferences
+    api deps.mmkv
+
 }
