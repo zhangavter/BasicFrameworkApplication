@@ -1,14 +1,19 @@
 package zhang.acfun.com.basicframeworkapplication.activity
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.main.*
 import zhang.acfun.com.basicframeworkapplication.R
 import zhang.acfun.com.basicframeworklib.model.PhotoModel
 import zhang.acfun.com.basicframeworklib.util.DoPicUtils
+import zhang.acfun.com.basicframeworklib.util.StringUtils
+import zhang.acfun.com.basicframeworklib.util.ToastUtil
 import zhang.acfun.com.basicframeworklib.view.dialog.PhotoSelectorDialog
 import zhang.acfun.com.basicframeworklib.view.dialog.photoSelect.AlbumController
+import zhang.acfun.com.basicframeworklib.widget.dataTimeSelect.CardDatePickerDialog
+import zhang.acfun.com.basicframeworklib.widget.dataTimeSelect.DateTimePicker
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
@@ -50,6 +55,37 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+
+        date_select?.setOnClickListener {
+            val displayList = mutableListOf<Int>()
+
+            displayList.add(DateTimePicker.YEAR)
+            displayList.add(DateTimePicker.MONTH)
+            displayList.add(DateTimePicker.DAY)
+            // displayList.add(DateTimePicker.HOUR)
+            //displayList.add(DateTimePicker.MIN)
+            //model = CardDatePickerDialog.STACK
+            /*  if (radioModelCustom.isChecked)
+                  model = R.drawable.shape_bg_dialog_custom*/
+
+            CardDatePickerDialog.builder(this)
+                .setTitle("选择时间")
+                .setDisplayType(displayList)
+                .setBackGroundModel(CardDatePickerDialog.STACK)
+                //.showBackNow(checkBackNow.isChecked)
+                /* .setDefaultTime(defaultDate)
+                 .setMaxTime(maxDate)
+                 .setMinTime(minDate)*/
+                // .setThemeColor(if (model == R.drawable.shape_bg_dialog_custom) Color.parseColor("#FF8000") else 0)
+                .showDateLabel(true)
+                .showFocusDateInfo(true)
+                .setOnChoose("选择") {
+                    ToastUtil.showToast("" + StringUtils.conversionTime(it, "yyyy-MM-dd HH:mm"))
+                }
+                .setOnCancel("关闭") {
+                }.build().show()
+        }
+
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
