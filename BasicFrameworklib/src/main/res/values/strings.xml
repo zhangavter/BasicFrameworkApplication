@@ -8,6 +8,9 @@
     <string name="defaultMoreText">全文</string>
     <string name="special_bottom_sheet_behavior">zhang.acfun.com.basicframeworklib.widget.bottomsheet.behavior.SpecialBottomSheetBehavior </string>
 
+    <string name="error_network_unavailable">网络不给力，盆友消消气</string>
+    <string name="tips_network_error">欧哟，网络狗带了</string>
+    <string name="failed_reason">暴走罢工了,程序哥哥鞭挞中</string>
 
     <string name="str_security_des">"检测到不安全的VPN,为了你在使用过程中信息不被泄露，请关闭VPN"</string>
     <string name="str_security_close">去关闭</string>

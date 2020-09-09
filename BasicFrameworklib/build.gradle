@@ -58,6 +58,7 @@ dependencies {
 
     //三方库
     api deps.fresco
+    api deps.frescogif
     api deps.recyclerviewAdapter
     api deps.mojito
     api deps.mojitoFactory
@@ -75,5 +76,11 @@ dependencies {
 
     //腾讯的存储方案 替代SharedPreferences
     api deps.mmkv
+
+    api deps.loggingInterceptor
+    api deps.okhttp
+    api deps.fastjson
+    api deps.gson
+    api deps.channel
 
 }

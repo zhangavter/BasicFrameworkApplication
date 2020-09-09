@@ -1,11 +1,6 @@
 package zhang.acfun.com.basicframeworklib.util
 
-import android.Manifest
 import android.content.Context
-import android.content.pm.PackageManager
-import android.telephony.TelephonyManager
-import android.text.TextUtils
-import androidx.core.app.ActivityCompat
 import java.io.File
 import java.io.FileInputStream
 import java.security.MessageDigest
@@ -18,7 +13,7 @@ import java.util.*
 object Utils {
 
     // 去掉"-"符号
-    private fun uuid(): String {
+     fun uuid(): String {
         val uuid = UUID.randomUUID()
         val str = uuid.toString()
         return (str.substring(0, 8) + str.substring(9, 13)
@@ -133,5 +128,21 @@ object Utils {
         }
 
         return ""
+    }
+
+
+    /**
+     * 获取版本名字versionName
+     *
+     * @return
+     */
+    fun getVersionStr(context: Context): String{
+        return try {
+            val manager = context.packageManager
+            val info = manager.getPackageInfo(context.packageName, 0)
+            info.versionName
+        } catch (e: java.lang.Exception) {
+            "0.0"
+        }
     }
 }

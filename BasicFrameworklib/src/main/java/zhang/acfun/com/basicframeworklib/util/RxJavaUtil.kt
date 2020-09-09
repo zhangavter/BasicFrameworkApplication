@@ -11,7 +11,7 @@ import io.reactivex.schedulers.Schedulers
 import java.util.concurrent.TimeUnit
 
 /**
- * Created by Soli on 2016/10/24.
+ * Created by zxb on 2016/10/24.
  */
 object RxJavaUtil {
 

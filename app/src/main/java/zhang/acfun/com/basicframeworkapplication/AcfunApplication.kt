@@ -12,6 +12,10 @@ class AcfunApplication : Application() {
     override fun onCreate() {
         super.onCreate()
 
+        Constants.envInit(
+            !(true), "EnvDev"
+        )
+
         Constants.init(this)
 
         MMKV.initialize(this)

@@ -74,6 +74,10 @@ ext {
     nineoldandroids = "2.4.0"
     rxpermissions = "0.12"
     mmkvVersion = "1.2.2"
+    okhttpversion = "4.6.0"
+    fastjsonversion = "1.1.72.android"
+    gsonversion = "2.8.6"
+    channel = "2.0.3"
 }
 
 ext.deps = [
@@ -87,6 +91,9 @@ ext.deps = [
 
         //图片加载
         fresco                 : "com.facebook.fresco:fresco:${frescoVersion}",
+        // 支持 GIF 动图，需要添加
+        frescogif              : "com.facebook.fresco:animated-gif:${frescoVersion}",
+
         //强大而灵活的RecyclerView Adapter
         recyclerviewAdapter    : "com.github.CymChad:BaseRecyclerViewAdapterHelper:${recyclerviewAdapter}",
 
@@ -107,4 +114,12 @@ ext.deps = [
 
         //腾讯的存储方案 替代SharedPreferences
         mmkv                   : "com.tencent:mmkv-static:${mmkvVersion}",
+
+        //okhttp
+        loggingInterceptor     : "com.squareup.okhttp3:logging-interceptor:${okhttpversion}",
+        okhttp                 : "com.squareup.okhttp3:okhttp:${okhttpversion}",
+
+        fastjson               : "com.alibaba:fastjson:${fastjsonversion}",
+        gson                   : "com.google.code.gson:gson:${gsonversion}",
+        channel                : "com.leon.channel:helper:${channel}",
 ]
