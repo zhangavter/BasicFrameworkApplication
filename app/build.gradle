@@ -32,11 +32,6 @@ android {
     //签名
     signingConfigs {
         release {
-            storeFile file("showstartfans.keystore")
-            storePassword "zrtrq1#showstart."
-            keyAlias "showstartfans"
-            keyPassword "showstartfans"
-
             v1SigningEnabled true
             v2SigningEnabled true
         }
