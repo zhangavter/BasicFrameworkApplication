@@ -1,11 +1,21 @@
 package zhang.acfun.com.basicframeworklib.base
 
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatDelegate
-import androidx.appcompat.app.SkinAppCompatDelegateImpl
+import android.os.Bundle
 
-open class BaseActivity : AppCompatActivity() {
-    override fun getDelegate(): AppCompatDelegate {
-        return SkinAppCompatDelegateImpl.get(this, this)
+abstract class BaseActivity : BaseFunctionActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        setContentView(setLayoutView())
+        initView()
+        initListener()
+        initData()
     }
+
+
+    protected abstract fun setLayoutView(): Int
+    protected abstract fun initView()
+    protected abstract fun initListener()
+    protected abstract fun initData()
 }

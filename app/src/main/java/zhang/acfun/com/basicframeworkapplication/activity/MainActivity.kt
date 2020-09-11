@@ -1,8 +1,6 @@
 package zhang.acfun.com.basicframeworkapplication.activity
 
 import android.content.Intent
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.main.*
 import skin.support.SkinCompatManager
 import zhang.acfun.com.basicframeworkapplication.R
@@ -22,14 +20,16 @@ class MainActivity : BaseActivity() {
     private var photoSelectorDialog: PhotoSelectorDialog? = null
     private var callBack: ArrayList<String>? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.main)
 
-        initListener()
+    override fun setLayoutView(): Int = R.layout.main
+
+    override fun initView() {
     }
 
-    fun initListener() {
+    override fun initData() {
+    }
+
+    override fun initListener() {
         test_loadimg?.setOnClickListener {
             startActivity(Intent(this@MainActivity, PreviewActivity::class.java))
         }
@@ -99,6 +99,10 @@ class MainActivity : BaseActivity() {
                 theme_select?.text = "日间模式->"
                 SkinCompatManager.getInstance().restoreDefaultTheme()
             }
+        }
+
+        dialog_select?.setOnClickListener {
+            ToastUtil.showToast("尽情期待..")
         }
 
     }

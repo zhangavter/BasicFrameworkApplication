@@ -1,29 +1,14 @@
 package zhang.acfun.com.basicframeworkapplication.activity
 
-import android.content.Context
-import android.os.Bundle
-import android.view.View
-import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import kotlinx.android.synthetic.main.activity_display.*
-import net.mikaelzero.mojito.Mojito
-import net.mikaelzero.mojito.impl.DefaultPercentProgress
-import net.mikaelzero.mojito.impl.NumIndicator
-import net.mikaelzero.mojito.impl.SimpleMojitoViewCallback
-import net.mikaelzero.mojito.interfaces.IProgress
-import net.mikaelzero.mojito.loader.InstanceLoader
 import zhang.acfun.com.basicframeworkapplication.R
 import zhang.acfun.com.basicframeworkapplication.adapter.FrescoAdapter
-import zhang.acfun.com.basicframeworklib.Constants
 import zhang.acfun.com.basicframeworklib.base.BaseActivity
-import zhang.acfun.com.basicframeworklib.widget.PictureActivityCoverLoader
 import zhang.acfun.com.basicframeworklib.widget.PictureViewer
 import java.util.*
 
 class PreviewActivity : BaseActivity() {
-    var context: Context? = null
 
     fun getNormalImages(): List<String> {
         val list: MutableList<String> = ArrayList()
@@ -40,11 +25,15 @@ class PreviewActivity : BaseActivity() {
     }
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        context = this
-        setContentView(R.layout.activity_display)
+    override fun setLayoutView(): Int = R.layout.activity_display
 
+    override fun initView() {
+    }
+
+    override fun initListener() {
+    }
+
+    override fun initData() {
         recyclerView.layoutManager = GridLayoutManager(this, 3)
         val adapter = FrescoAdapter()
         adapter.setList(getNormalImages())
@@ -52,7 +41,7 @@ class PreviewActivity : BaseActivity() {
 
         adapter.setOnItemClickListener { _, _, position ->
             PictureViewer(
-                context!!,
+                ctx,
                 getNormalImages(),
                 recyclerView,
                 R.id.srcImageView,
