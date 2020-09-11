@@ -88,6 +88,11 @@ class MainActivity : BaseActivity() {
                 }.build().show()
         }
 
+
+        video_select?.setOnClickListener {
+            startActivity(Intent(this@MainActivity, VideoLoginActivity::class.java))
+        }
+
         theme_select?.setOnClickListener {
             if (!night) {
                 night = true

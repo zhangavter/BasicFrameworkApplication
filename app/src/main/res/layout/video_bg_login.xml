@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <zhang.acfun.com.basicframeworklib.widget.videoView.CustomVideoView
+        android:id="@+id/videoView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:scalableType="centerCrop" />
+
+
+    <LinearLayout
+        android:id="@+id/number"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_sw_50dp"
+        android:layout_marginLeft="@dimen/dimen_sw_25dp"
+        android:layout_marginTop="@dimen/dimen_sw_160dp"
+        android:layout_marginRight="@dimen/dimen_sw_25dp"
+        android:background="@drawable/shape_white_round_30dp_border"
+        android:gravity="center_vertical|center"
+        android:paddingLeft="@dimen/dimen_sw_25dp"
+        android:paddingRight="@dimen/dimen_sw_25dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+86"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="20dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:hint="Your telephone number"
+            android:paddingLeft="@dimen/dimen_sw_20dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/C5"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="@dimen/dimen_sw_140dp"
+        android:layout_height="@dimen/dimen_sw_45dp"
+        android:layout_below="@+id/number"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="@dimen/dp_40"
+        android:layout_marginRight="@dimen/dimen_sw_25dp"
+        android:background="@drawable/shape_white_round_30dp_border"
+        android:gravity="center"
+        android:text="login"
+        android:textColor="@color/white"
+        android:textSize="15sp" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center|left"
+        android:paddingLeft="@dimen/dimen_sw_25dp"
+        android:paddingRight="@dimen/dimen_sw_25dp"
+        android:paddingBottom="@dimen/dimen_sw_40dp"
+        android:text="Login means that you read and agree to the framework rules and user agreement"
+        android:textColor="@color/white"
+        android:textSize="13sp" />
+
+</RelativeLayout>
