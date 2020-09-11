@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <!--*************************APP 项目规范颜色定义****************************-->
-
-    <color name="white">#ffffff</color>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
 
     <!--*****************规范颜色 兼容夜间模式*******************-->
 
@@ -19,19 +18,9 @@
     <color name="C9">#F1F2F3</color>
     <color name="C10">#F1F1F1</color>
 
-    <color name="color_pic_flag">#88000000</color>
-    <color name="colorTextHint">#B2B2B2</color>
-    <color name="colorTextBlack">#333333</color>
-    <color name="colorTextBlackLight">#4d4d4d</color>
-    <color name="colorTextGrayLight">#C3C3C3</color>
-    <color name="colorTextGrayDark">#666666</color>
-    <color name="colorTextGray">#999999</color>
-    <color name="colorTextGold">#fff8b62b</color>
-    <color name="colorTextOrange">#FFFFAC04</color>
-    <color name="colorTextRed">#FE4A29</color>
-    <color name="colorTextGreen">#00BE82</color>
-    <color name="colorTextWhite">#ffffff</color>
-    <color name="colorTextPink">#ff6daf</color>
+    <color name="white">#ffffff</color>
+    <color name="red">#EB484A</color>
+    <color name="line">#ebebeb</color>
 
 
 </resources>

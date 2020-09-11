@@ -35,6 +35,9 @@ android {
     sourceSets {
         main {
             jniLibs.srcDirs = ['libs']
+            res {
+                srcDirs 'src/main/res', 'src/main/res-night'
+            }
         }
     }
 }
@@ -83,4 +86,15 @@ dependencies {
     api deps.gson
     api deps.channel
 
+    //换肤框架
+    api deps.skin_support
+    api deps.skin_support_appcompat
+    api deps.skin_support_cardview
+    api deps.skin_support_constraint_layout
+    api deps.skin_support_design
+
+    api deps.svga_player
+
+
+    api(name: 'flycotablayout-2.1.5', ext: 'aar')
 }

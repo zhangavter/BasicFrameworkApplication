@@ -7,6 +7,7 @@ import android.widget.FrameLayout
 import androidx.annotation.ColorInt
 import androidx.annotation.Dimension
 import androidx.core.content.ContextCompat
+import skin.support.content.res.SkinCompatResources
 import zhang.acfun.com.basicframeworklib.R
 import java.time.LocalDateTime
 import java.time.ZoneOffset
@@ -59,8 +60,10 @@ class DateTimePicker : FrameLayout {
         showLabel = attributesArray.getBoolean(R.styleable.DateTimePicker_showLabel, true)
         themeColor = attributesArray.getColor(
             R.styleable.DateTimePicker_themeColor,
-            ContextCompat.getColor(context, R.color.C0)
+            SkinCompatResources.getColor(context,R.color.C0)
         )
+
+
         textSize = px2dip(
             attributesArray.getDimensionPixelSize(
                 R.styleable.DateTimePicker_textSize,

@@ -17,11 +17,12 @@ import net.mikaelzero.mojito.loader.InstanceLoader
 import zhang.acfun.com.basicframeworkapplication.R
 import zhang.acfun.com.basicframeworkapplication.adapter.FrescoAdapter
 import zhang.acfun.com.basicframeworklib.Constants
+import zhang.acfun.com.basicframeworklib.base.BaseActivity
 import zhang.acfun.com.basicframeworklib.widget.PictureActivityCoverLoader
 import zhang.acfun.com.basicframeworklib.widget.PictureViewer
 import java.util.*
 
-class PreviewActivity : AppCompatActivity() {
+class PreviewActivity : BaseActivity() {
     var context: Context? = null
 
     fun getNormalImages(): List<String> {

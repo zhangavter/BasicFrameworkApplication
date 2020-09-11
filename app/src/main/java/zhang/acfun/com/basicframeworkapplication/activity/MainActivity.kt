@@ -1,11 +1,12 @@
 package zhang.acfun.com.basicframeworkapplication.activity
 
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.main.*
+import skin.support.SkinCompatManager
 import zhang.acfun.com.basicframeworkapplication.R
+import zhang.acfun.com.basicframeworklib.base.BaseActivity
 import zhang.acfun.com.basicframeworklib.model.PhotoModel
 import zhang.acfun.com.basicframeworklib.util.DoPicUtils
 import zhang.acfun.com.basicframeworklib.util.StringUtils
@@ -16,7 +17,8 @@ import zhang.acfun.com.basicframeworklib.widget.dataTimeSelect.CardDatePickerDia
 import zhang.acfun.com.basicframeworklib.widget.dataTimeSelect.DateTimePicker
 import java.util.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
+    private var night = false
     private var photoSelectorDialog: PhotoSelectorDialog? = null
     private var callBack: ArrayList<String>? = null
 
@@ -86,6 +88,18 @@ class MainActivity : AppCompatActivity() {
                 }.build().show()
         }
 
+        theme_select?.setOnClickListener {
+            if (!night) {
+                night = true
+                theme_select?.text = "夜间模式->"
+                SkinCompatManager.getInstance()
+                    .loadSkin("night", null, SkinCompatManager.SKIN_LOADER_STRATEGY_BUILD_IN)
+            } else {
+                night = false
+                theme_select?.text = "日间模式->"
+                SkinCompatManager.getInstance().restoreDefaultTheme()
+            }
+        }
 
     }
 

@@ -15,7 +15,6 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import zhang.acfun.com.basicframeworklib.R
 import zhang.acfun.com.basicframeworklib.util.StringUtils
-import java.util.*
 
 
 /**
@@ -50,8 +49,10 @@ class CardDatePickerDialog(context: Context) : BottomSheetDialog(context), View.
     private var tv_submit: TextView? = null
     private var tv_title: TextView? = null
     private var tv_choose_date: TextView? = null
-   // private var btn_today: TextView? = null
+
+    // private var btn_today: TextView? = null
     private var datePicker: DateTimePicker? = null
+
     //private var tv_go_back: TextView? = null
     //private var linear_now: LinearLayout? = null
     private var linear_bg: LinearLayout? = null
@@ -82,46 +83,14 @@ class CardDatePickerDialog(context: Context) : BottomSheetDialog(context), View.
         tv_submit = findViewById(R.id.dialog_submit)
         datePicker = findViewById(R.id.dateTimePicker)
         tv_title = findViewById(R.id.tv_title)
-      //  btn_today = findViewById(R.id.btn_today)
+        //  btn_today = findViewById(R.id.btn_today)
         tv_choose_date = findViewById(R.id.tv_choose_date)
-      //  tv_go_back = findViewById(R.id.tv_go_back)
+        //  tv_go_back = findViewById(R.id.tv_go_back)
         //linear_now = findViewById(R.id.linear_now)
         linear_bg = findViewById(R.id.linear_bg)
 
         mBehavior = BottomSheetBehavior.from(bottomSheet)
 
-
-        //背景模式
-        if (builder!!.model != 0) {
-            val parmas = LinearLayout.LayoutParams(linear_bg!!.layoutParams)
-            when (builder!!.model) {
-                CARD -> {
-                    parmas.setMargins(dip2px(12f), dip2px(12f), dip2px(12f), dip2px(12f))
-                    linear_bg!!.layoutParams = parmas
-                    linear_bg!!.setBackgroundResource(R.drawable.shape_bg_round_white_5)
-                }
-                CUBE -> {
-                    parmas.setMargins(0, 0, 0, 0)
-                    linear_bg!!.layoutParams = parmas
-                    linear_bg!!.setBackgroundColor(
-                        ContextCompat.getColor(
-                            context,
-                            R.color.colorTextWhite
-                        )
-                    )
-                }
-                STACK -> {
-                    parmas.setMargins(0, 0, 0, 0)
-                    linear_bg!!.layoutParams = parmas
-                    linear_bg!!.setBackgroundResource(R.drawable.shape_bg_top_round_white_15)
-                }
-                else -> {
-                    parmas.setMargins(0, 0, 0, 0)
-                    linear_bg!!.layoutParams = parmas
-                    linear_bg!!.setBackgroundResource(builder!!.model)
-                }
-            }
-        }
 
         //标题
         if (!TextUtils.isEmpty(builder!!.titleValue))
@@ -161,22 +130,22 @@ class CardDatePickerDialog(context: Context) : BottomSheetDialog(context), View.
                 if (i == DateTimePicker.YEAR && year_month_day_hour <= 0) {
                     year_month_day_hour = 0
                     //tv_go_back!!.text = "回到今年"
-                   // btn_today!!.text = "今"
+                    // btn_today!!.text = "今"
                 }
                 if (i == DateTimePicker.MONTH && year_month_day_hour <= 1) {
                     year_month_day_hour = 1
-                   // tv_go_back!!.text = "回到本月"
+                    // tv_go_back!!.text = "回到本月"
                     //btn_today!!.text = "本"
                 }
                 if (i == DateTimePicker.DAY && year_month_day_hour <= 2) {
                     year_month_day_hour = 2
-                   // tv_go_back!!.text = "回到今日"
-                   // btn_today!!.text = "今"
+                    // tv_go_back!!.text = "回到今日"
+                    // btn_today!!.text = "今"
                 }
                 if ((i == DateTimePicker.HOUR || i == DateTimePicker.MIN) && year_month_day_hour <= 3) {
                     year_month_day_hour = 3
-                  //  tv_go_back!!.text = "回到此刻"
-                   // btn_today!!.text = "此"
+                    //  tv_go_back!!.text = "回到此刻"
+                    // btn_today!!.text = "此"
                 }
             }
 
@@ -200,12 +169,12 @@ class CardDatePickerDialog(context: Context) : BottomSheetDialog(context), View.
             val gd = GradientDrawable()
             gd.setColor(builder!!.themeColor)
             gd.cornerRadius = dip2px(60f).toFloat()
-           // btn_today!!.background = gd
+            // btn_today!!.background = gd
         }
 
         tv_cancel!!.setOnClickListener(this)
         tv_submit!!.setOnClickListener(this)
-       // btn_today!!.setOnClickListener(this)
+        // btn_today!!.setOnClickListener(this)
 
         datePicker!!.setOnDateTimeChangedListener { _, millisecond ->
             this@CardDatePickerDialog.millisecond = millisecond
@@ -225,9 +194,9 @@ class CardDatePickerDialog(context: Context) : BottomSheetDialog(context), View.
         this.dismiss()
         when (v.id) {
 
-           /* R.id.btn_today -> {
-                builder?.onChooseListener?.invoke(Calendar.getInstance().timeInMillis)
-            }*/
+            /* R.id.btn_today -> {
+                 builder?.onChooseListener?.invoke(Calendar.getInstance().timeInMillis)
+             }*/
             R.id.dialog_submit -> {
                 builder?.onChooseListener?.invoke(millisecond)
             }

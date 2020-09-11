@@ -78,48 +78,63 @@ ext {
     fastjsonversion = "1.1.72.android"
     gsonversion = "2.8.6"
     channel = "2.0.3"
+    skin_support = "4.0.5"
+    svga_version = "2.5.3"
 }
 
 ext.deps = [
-        multidex               : "androidx.multidex:multidex:${multidex}",
-        corektx                : "androidx.core:core-ktx:${corektx}",
-        appcompat              : "androidx.appcompat:appcompat:${appcompat}",
-        supportDesign          : "com.google.android.material:material:${supportDesign}",
-        recyclerview           : "androidx.recyclerview:recyclerview:${recyclerview}",
-        constraint             : "androidx.constraintlayout:constraintlayout:${constraint}",
-        annotation             : "androidx.annotation:annotation:${annotation}",
+        multidex                      : "androidx.multidex:multidex:${multidex}",
+        corektx                       : "androidx.core:core-ktx:${corektx}",
+        appcompat                     : "androidx.appcompat:appcompat:${appcompat}",
+        supportDesign                 : "com.google.android.material:material:${supportDesign}",
+        recyclerview                  : "androidx.recyclerview:recyclerview:${recyclerview}",
+        constraint                    : "androidx.constraintlayout:constraintlayout:${constraint}",
+        annotation                    : "androidx.annotation:annotation:${annotation}",
 
         //图片加载
-        fresco                 : "com.facebook.fresco:fresco:${frescoVersion}",
+        fresco                        : "com.facebook.fresco:fresco:${frescoVersion}",
         // 支持 GIF 动图，需要添加
-        frescogif              : "com.facebook.fresco:animated-gif:${frescoVersion}",
+        frescogif                     : "com.facebook.fresco:animated-gif:${frescoVersion}",
 
         //强大而灵活的RecyclerView Adapter
-        recyclerviewAdapter    : "com.github.CymChad:BaseRecyclerViewAdapterHelper:${recyclerviewAdapter}",
+        recyclerviewAdapter           : "com.github.CymChad:BaseRecyclerViewAdapterHelper:${recyclerviewAdapter}",
 
-        //图片查看专场效果-支持长图
-        mojito                 : "net.mikaelzero.mojito:core:${mojito}",
-        mojitoFactory          : "net.mikaelzero.mojito:SketchImageFactory:${mojito}",
-        mojitoFrescoImageLoader: "net.mikaelzero.mojito:FrescoImageLoader:${mojito}",
+        //灵活的图片查看转场效果-支持长图
+        mojito                        : "net.mikaelzero.mojito:core:${mojito}",
+        mojitoFactory                 : "net.mikaelzero.mojito:SketchImageFactory:${mojito}",
+        mojitoFrescoImageLoader       : "net.mikaelzero.mojito:FrescoImageLoader:${mojito}",
 
         //rxjava
-        rxjava                 : "io.reactivex.rxjava2:rxjava:${rxjava_version}",
-        rxandroid              : "io.reactivex.rxjava2:rxandroid:${rxandroid_version}",
+        rxjava                        : "io.reactivex.rxjava2:rxjava:${rxjava_version}",
+        rxandroid                     : "io.reactivex.rxjava2:rxandroid:${rxandroid_version}",
         //RxBinding
-        rxbinding              : "com.jakewharton.rxbinding4:rxbinding:${RxBinding_version}",
-        rxbindingcore          : "com.jakewharton.rxbinding4:rxbinding-core:${RxBinding_version}",
+        rxbinding                     : "com.jakewharton.rxbinding4:rxbinding:${RxBinding_version}",
+        rxbindingcore                 : "com.jakewharton.rxbinding4:rxbinding-core:${RxBinding_version}",
 
-        nineoldandroids        : "com.nineoldandroids:library:${nineoldandroids}",
-        rxpermissions          : "com.github.tbruyelle:rxpermissions:${rxpermissions}",
+        //动画库
+        nineoldandroids               : "com.nineoldandroids:library:${nineoldandroids}",
+        //权限
+        rxpermissions                 : "com.github.tbruyelle:rxpermissions:${rxpermissions}",
 
         //腾讯的存储方案 替代SharedPreferences
-        mmkv                   : "com.tencent:mmkv-static:${mmkvVersion}",
+        mmkv                          : "com.tencent:mmkv-static:${mmkvVersion}",
 
         //okhttp
-        loggingInterceptor     : "com.squareup.okhttp3:logging-interceptor:${okhttpversion}",
-        okhttp                 : "com.squareup.okhttp3:okhttp:${okhttpversion}",
+        loggingInterceptor            : "com.squareup.okhttp3:logging-interceptor:${okhttpversion}",
+        okhttp                        : "com.squareup.okhttp3:okhttp:${okhttpversion}",
 
-        fastjson               : "com.alibaba:fastjson:${fastjsonversion}",
-        gson                   : "com.google.code.gson:gson:${gsonversion}",
-        channel                : "com.leon.channel:helper:${channel}",
+        fastjson                      : "com.alibaba:fastjson:${fastjsonversion}",
+        gson                          : "com.google.code.gson:gson:${gsonversion}",
+        channel                       : "com.leon.channel:helper:${channel}",
+
+        //skin_support
+        skin_support                  : "skin.support:skin-support:${skin_support}",
+        skin_support_appcompat        : "skin.support:skin-support-appcompat:${skin_support}",
+        skin_support_cardview         : "skin.support:skin-support-cardview:${skin_support}",
+        skin_support_constraint_layout: "skin.support:skin-support-constraint-layout:${skin_support}",
+        skin_support_design           : "skin.support:skin-support-design:${skin_support}",
+
+        //svga
+        svga_player                   : "com.github.yyued:SVGAPlayer-Android:${svga_version}",
+
 ]

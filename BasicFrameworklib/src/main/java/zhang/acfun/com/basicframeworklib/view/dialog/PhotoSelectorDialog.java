@@ -59,7 +59,6 @@ public class PhotoSelectorDialog extends BaseSheetFragment {
     private LinearLayout layout_title_photo;
     private AlbumListView album_list;
     private ImageView iv_arrow;
-    private LinearLayout layout_Close;
     // private LoadingInsideView picLoadingView;
     private PhotoSelectorDomain photoSelectorDomain;
     private PhotoAdapter adapter;
@@ -92,7 +91,6 @@ public class PhotoSelectorDialog extends BaseSheetFragment {
         // picLoadingView = view.findViewById(R.id.picLoadingView);
 //        picLoadingView.setloadingBackgroundColor(ThemeUtil.INSTANCE.isThemeNight() ? Color.parseColor("#161823") : Color.parseColor("#FFFFFF"));
         rv_photo_list = view.findViewById(R.id.rv_photo_list);
-        layout_Close = view.findViewById(R.id.layout_close);
         layout_title_photo = view.findViewById(R.id.layout_title_photo);
         tv_title_photo = view.findViewById(R.id.tv_title_photo);
         iv_arrow = view.findViewById(R.id.iv_arrow);
@@ -126,7 +124,6 @@ public class PhotoSelectorDialog extends BaseSheetFragment {
     @SuppressLint("SetTextI18n")
     @Override
     protected void initListener() {
-        layout_Close.setOnClickListener((View view) -> dismiss());
 
         layout_title_photo.setOnClickListener((View view) -> toggleMenu());
 

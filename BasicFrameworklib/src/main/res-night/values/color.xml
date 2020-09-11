@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <!--*****************规范颜色 兼容夜间模式*******************-->
+
+    <color name="colorPrimary_night">#6200EE</color>
+    <color name="colorPrimaryDark_night">#3700B3</color>
+    <color name="colorAccent_night">#03DAC5</color>
+
+    <color name="C0_night">#dddddd</color>
+    <color name="C1_night">#dddddd</color>
+    <color name="C2_night">#dddddd</color>
+    <color name="C3_night">#666666</color>
+    <color name="C4_night">#666666</color>
+    <color name="C5_night">#666666</color>
+    <color name="C6_night">#666666</color>
+    <color name="C7_night">#444444</color>
+    <color name="C8_night">#444444</color>
+    <color name="C9_night">#444444</color>
+
+    <color name="white_night">#121212</color>
+    <color name="red_night">#C12222</color>
+    <color name="line_night">#2f2f2f</color>
+
+
+
+</resources>
