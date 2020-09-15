@@ -13,4 +13,7 @@
     <dimen name="new_pull_loading_width">25dp</dimen>
 
     <dimen name="more_loading_height">65dp</dimen>
+
+    <!--阴影每一种颜色宽度-->
+    <dimen name="cardPadding">1dp</dimen>
 </resources>

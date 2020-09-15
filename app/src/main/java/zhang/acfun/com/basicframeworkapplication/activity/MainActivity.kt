@@ -9,6 +9,7 @@ import zhang.acfun.com.basicframeworklib.model.PhotoModel
 import zhang.acfun.com.basicframeworklib.util.DoPicUtils
 import zhang.acfun.com.basicframeworklib.util.StringUtils
 import zhang.acfun.com.basicframeworklib.util.ToastUtil
+import zhang.acfun.com.basicframeworklib.view.TipsDialog
 import zhang.acfun.com.basicframeworklib.view.dialog.PhotoSelectorDialog
 import zhang.acfun.com.basicframeworklib.view.dialog.photoSelect.AlbumController
 import zhang.acfun.com.basicframeworklib.widget.dataTimeSelect.CardDatePickerDialog
@@ -106,10 +107,30 @@ class MainActivity : BaseActivity() {
             }
         }
 
-        dialog_select?.setOnClickListener {
-            ToastUtil.showToast("尽情期待..")
+        loading_btn?.setOnClickListener {
+            showLoadDialog(true)
         }
 
+
+        dialog_btn?.setOnClickListener {
+            val dialog = TipsDialog(this)
+            dialog.setDescriptionText("这是一个自定义提示")
+                .HideCancleBtn()
+                .HideTitleBtn()
+                .setDialogListener {
+                    ToastUtil.showToast("确定")
+                }
+                .show()
+        }
+
+        dialog_btn2?.setOnClickListener {
+            val dialog = TipsDialog(this)
+            dialog.setDescriptionText("这是第二个自定义提示")
+                .setDialogListener {
+                    ToastUtil.showToast("确定")
+                }
+                .show()
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

@@ -25,4 +25,16 @@
 
 
 
+    <!--阴影颜色-->
+    <color name="cardShadowColor_1_night">#00222222</color>
+    <color name="cardShadowColor_2_night">#00222222</color>
+    <color name="cardShadowColor_3_night">#01222222</color>
+    <color name="cardShadowColor_4_night">#02222222</color>
+    <color name="cardShadowColor_5_night">#05222222</color>
+    <color name="cardShadowColor_6_night">#05000000</color>
+    <color name="cardShadowColor_7_night">#06000000</color>
+    <color name="cardShadowColor_8_night">#07000000</color>
+    <color name="cardShadowColor_9_night">#08000000</color>
+    <color name="cardShadowColor_10_night">#09000000</color>
+
 </resources>

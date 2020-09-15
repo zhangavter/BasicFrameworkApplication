@@ -80,6 +80,7 @@ ext {
     channel = "2.0.3"
     skin_support = "4.0.5"
     svga_version = "2.5.3"
+    lottieVersion = "3.4.2"
 }
 
 ext.deps = [
@@ -136,5 +137,7 @@ ext.deps = [
 
         //svga
         svga_player                   : "com.github.yyued:SVGAPlayer-Android:${svga_version}",
+        //lottie
+        lottie                        : "com.airbnb.android:lottie:${lottieVersion}",
 
 ]

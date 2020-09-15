@@ -9,6 +9,7 @@ import androidx.appcompat.app.SkinAppCompatDelegateImpl
 import zhang.acfun.com.basicframeworklib.util.KeyBoardUtils
 import zhang.acfun.com.basicframeworklib.util.StatusBarUtil
 import zhang.acfun.com.basicframeworklib.util.ThemeUtil
+import zhang.acfun.com.basicframeworklib.view.LoadingView
 
 /**
  * @author zxb
@@ -21,7 +22,7 @@ abstract class BaseFunctionActivity : BaseFixOTranslucentActivity() {
      */
     protected val ctx by lazy { this }
 
-    //private var dialog: LoadingDialog? = null
+    private var loadDialog: LoadingView? = null
 
     @JvmField
     protected var savedInstanceState: Bundle? = null
@@ -98,10 +99,38 @@ abstract class BaseFunctionActivity : BaseFixOTranslucentActivity() {
         return super.dispatchTouchEvent(ev)
     }
 
+
     /**
-     *
+     * 显示加载进度条
      */
-   // fun loadingDialg() = dialog
+    open fun showLoadDialog(canCancle: Boolean) {
+        try {
+            if (!isFinishing) {
+                if (loadDialog == null) {
+                    loadDialog = LoadingView(this)
+                    loadDialog!!.setCanceledOnTouchOutside(canCancle)
+                    loadDialog!!.setCancelable(canCancle)
+                }
+                if (!loadDialog!!.isShowing) loadDialog!!.show()
+            }
+        } catch (e: java.lang.Exception) {
+        }
+    }
+
+    /**
+     * 停止显示加载进度条
+     */
+    open fun dismissProgressLoadDialog() {
+        try {
+            if (!isFinishing) {
+                if (loadDialog != null && loadDialog!!.isShowing) {
+                    loadDialog!!.dismiss()
+                    loadDialog = null
+                }
+            }
+        } catch (e: java.lang.Exception) {
+        }
+    }
 
 
     //这个方法每次个Activity只能设置一次

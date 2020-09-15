@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/dimen_sw_40dp"
+    android:background="@drawable/shape_bg_white_10dp"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/dimen_sw_25dp">
+
+    <TextView
+        android:id="@+id/dailogTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:paddingLeft="10dip"
+        android:paddingRight="10dip"
+        android:text="提示"
+        android:textColor="@color/C1"
+        android:textSize="16sp"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/content"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dailogTitle"
+        android:layout_marginLeft="@dimen/dimen_sw_35dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="@dimen/dimen_sw_35dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:lineSpacingMultiplier="1.2"
+        android:text="are you sure operation this?"
+        android:textColor="@color/C3"
+        android:textSize="14sp" />
+
+    <View
+        android:id="@+id/content_sep"
+        android:layout_width="fill_parent"
+        android:layout_height="0.3dp"
+        android:layout_below="@id/content"
+        android:background="@color/line" />
+
+
+    <LinearLayout
+        android:id="@+id/ll_foot_dialog"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/content_sep">
+
+        <TextView
+            android:id="@+id/btn_cancle"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/dimen_sw_45dp"
+            android:layout_weight="1.0"
+            android:gravity="center"
+            android:text="取消"
+            android:textColor="@color/C4"
+            android:textSize="12sp" />
+
+        <View
+            android:id="@+id/bottom_sep"
+            android:layout_width="0.5dp"
+            android:layout_height="@dimen/dimen_sw_45dp"
+            android:background="@color/line" />
+
+        <TextView
+            android:id="@+id/btn_ok"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/dimen_sw_45dp"
+            android:layout_weight="1.0"
+            android:gravity="center"
+            android:text="确定"
+            android:textColor="@color/red"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+</RelativeLayout>

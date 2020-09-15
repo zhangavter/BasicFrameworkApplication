@@ -94,6 +94,7 @@ dependencies {
     api deps.skin_support_design
 
     api deps.svga_player
+    api deps.lottie
 
 
     api(name: 'flycotablayout-2.1.5', ext: 'aar')
