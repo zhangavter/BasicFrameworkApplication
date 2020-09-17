@@ -55,10 +55,10 @@ ext {
 
     corektx = "1.3.1"
     appcompat = "1.2.0"
-    multidex = "2.0.0"
-    supportDesign = "1.0.0"
-    recyclerview = "1.0.0"
-    constraint = "1.1.3"
+    multidex = "2.0.1"
+    supportDesign = "1.2.1"
+    recyclerview = "1.1.0"
+    constraint = "2.0.1"
     annotation = "1.1.0"
 
     frescoVersion = "2.1.0"
@@ -91,6 +91,7 @@ ext.deps = [
         recyclerview                  : "androidx.recyclerview:recyclerview:${recyclerview}",
         constraint                    : "androidx.constraintlayout:constraintlayout:${constraint}",
         annotation                    : "androidx.annotation:annotation:${annotation}",
+
 
         //图片加载
         fresco                        : "com.facebook.fresco:fresco:${frescoVersion}",
