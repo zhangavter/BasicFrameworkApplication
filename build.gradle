@@ -61,7 +61,7 @@ ext {
     constraint = "2.0.1"
     annotation = "1.1.0"
 
-    frescoVersion = "2.1.0"
+    frescoVersion = "2.3.0"
     recyclerviewAdapter = "3.0.4"
     mojito = "1.5"
 
@@ -73,14 +73,14 @@ ext {
 
     nineoldandroids = "2.4.0"
     rxpermissions = "0.12"
-    mmkvVersion = "1.2.2"
-    okhttpversion = "4.6.0"
+    mmkvVersion = "1.2.7"
+    okhttpversion = "4.9.0"
     fastjsonversion = "1.1.72.android"
     gsonversion = "2.8.6"
     channel = "2.0.3"
     skin_support = "4.0.5"
-    svga_version = "2.5.3"
-    lottieVersion = "3.4.2"
+    svga_version = "2.5.14"
+    lottieVersion = "3.6.0"
 }
 
 ext.deps = [
